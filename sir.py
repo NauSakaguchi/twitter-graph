@@ -102,14 +102,15 @@ def reduce_graph_size(G):
     return G
 
 
-def get_top_pr_from(communities, pr):
+def get_top_pr_from(communities, pr, list_size):
     # sort by page rank
     pr_sorted = sorted(pr.items(), key=lambda x: x[1], reverse=True)
 
     top_list = []
     # show top 1 node in each community
     print("Top 1 node in each community by PageRank")
-    for community in communities:
+    for i in range(list_size):
+        community = communities[i % len(communities)]
         pr_community = {node: pr[node] for node in community}
         pr_community_sorted = sorted(pr_community.items(), key=lambda x: x[1], reverse=True)
         print("Community: {}, Node: {}, PageRank: {}".format(community, pr_community_sorted[0][0],
@@ -126,11 +127,13 @@ def main():
     # つまり、フォローされている人の情報がフォロワーに伝わる
     G = G.reverse()
 
+    # set parameters for SIR simulation
+    init_cnt = 1
+    hours = 200
+
     # First Strategy
     # setup
     # ランダムにいくつかのノードをInfectedに設定
-    init_cnt = 5
-    hours = 200
     initial_infected_nodes = random.sample(list(G.nodes), init_cnt)  # 5は初期感染ノードの数を表します
 
     # execute SIR simulation
@@ -139,10 +142,9 @@ def main():
 
     # Second Strategy
     # setup
-    init_cnt = 5
-    hours = 200
     preprocessed_graph = reduce_graph_size(G)
-    initial_infected_nodes = get_top_pr_from(get_communities_from(preprocessed_graph),  nx.pagerank(preprocessed_graph))
+    initial_infected_nodes = get_top_pr_from(get_communities_from(preprocessed_graph),  nx.pagerank(preprocessed_graph),
+                                             init_cnt)
 
     # execute SIR simulation
     cnt_list = sir_simulation(G, initial_infected_nodes, init_cnt, hours)
