@@ -1,5 +1,21 @@
 # twitter-graph
 
+## graph.py
+Code for graph manipulation, such as creating graphs and detecting communities.
+
+## main.py
+Code for setting up experiments and parameters.
+
+## sir.py
+Code for simulating information diffusion based on the SIR model.
+
+## visualization.py
+Code for visualizing experimental results.
+
+## Experiments folder
+A Jupyter notebook for preprocessing experiments. With code explanation and experimental results.
+
+
 # 1. Introduction
 
 Twitter is a popular social media platform that can provide valuable insights for marketing. By analyzing the tweets and interactions of users, marketers can identify and target potential customers based on their interests and behaviors. One of the key tasks in Twitter analysis is community detection, which aims to find groups of users who share similar characteristics or preferences. However, Twitter has a very large and complex network structure, with millions of nodes (users) and edges (relationships). Running a community detection algorithm on such a huge graph can be computationally expensive and may not produce meaningful results. Therefore, I am interested in exploring methods to reduce the size of a large graph while preserving its essential features and properties. This way, I can apply community detection more efficiently and effectively on Twitter data.
