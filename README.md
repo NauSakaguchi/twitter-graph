@@ -1,18 +1,18 @@
 # twitter-graph
 
-## graph.py
+### graph.py
 Code for graph manipulation, such as creating graphs and detecting communities.
 
-## main.py
+### main.py
 Code for setting up experiments and parameters.
 
-## sir.py
+### sir.py
 Code for simulating information diffusion based on the SIR model.
 
-## visualization.py
+### visualization.py
 Code for visualizing experimental results.
 
-## Experiments folder
+### Experiments folder
 A Jupyter notebook for preprocessing experiments. With code explanation and experimental results.
 
 
